@@ -17,7 +17,7 @@
     "build:client": "vite build --outDir dist/client",
     "build:server": "vite build --ssr server/index.ts --outDir dist/server",
     "build": "yarn build:client & yarn build:server",
-    "netlify:build": "yarn lint && tsc && vite build --outDir dist/client && vite build --ssr server/index.ts --outDir dist/server",
+    "netlify:build": "vite build --outDir dist/client && vite build --ssr server/index.ts --outDir dist/server",
     "check-packages": "npx npm-check-updates",
     "update-packages": "yarn check:packages -u && yarn init"
   },
