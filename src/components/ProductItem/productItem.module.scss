@@ -1,0 +1,99 @@
+$transTime: 0.3s;
+
+@keyframes click {
+  10% {
+    transform: scale(0.95);
+  }
+
+  40% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.container {
+  padding: 0;
+  border: none;
+  outline: transparent;
+  cursor: pointer;
+}
+
+.animated {
+  animation: click 1s;
+}
+
+.product {
+  display: grid;
+  padding: 1rem;
+  gap: 1rem;
+  border-radius: 0.125rem;
+  background: #ffffff;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+  h3 {
+    margin: 0;
+    color: #087ea4;
+  }
+}
+
+.picture {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    object-fit: contain;
+    transition: transform $transTime;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.description {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.status {
+  $red: rgb(213, 35, 35);
+  $green: rgb(48, 164, 48);
+  $gray: rgb(68, 68, 68);
+
+  @mixin setStatus($color) {
+    color: $color;
+    border-color: $color;
+  }
+
+  position: relative;
+  top: -1.5rem;
+  align-self: flex-start;
+  padding: 0.125rem 0.25rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.5);
+  border: 0.2rem solid;
+  border-radius: 0.125rem;
+  transform: rotate(-15deg);
+
+  &.dead {
+    @include setStatus($red);
+  }
+
+  &.alive {
+    @include setStatus($green);
+  }
+
+  &.unknown {
+    @include setStatus($gray);
+  }
+}

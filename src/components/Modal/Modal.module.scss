@@ -1,0 +1,31 @@
+$transTime: 0.3s;
+
+@keyframes showModal {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0;
+  background: rgba(8, 125, 164, 0.4);
+  border: none;
+  animation: showModal $transTime;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: showModal $transTime;
+}

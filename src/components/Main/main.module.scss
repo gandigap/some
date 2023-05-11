@@ -1,0 +1,22 @@
+.main {
+  display: grid;
+  align-items: start;
+  grid-template-rows: auto auto auto 1fr;
+  gap: 1rem;
+  flex-grow: 1;
+  padding: 0 2rem;
+
+  h1 {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  h2 {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  section {
+    margin: 0 auto;
+  }
+}

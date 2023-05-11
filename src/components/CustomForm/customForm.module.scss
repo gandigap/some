@@ -1,0 +1,138 @@
+$transTime: 0.3s;
+
+%Buttons {
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: bold;
+  color: #fafeff;
+  background: #65a5ba;
+  border: transparent;
+  border-radius: 0.25rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  cursor: pointer;
+  transition: box-shadow $transTime, background $transTime;
+
+  &:hover {
+    background: #087ea4;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 1px 3px -1px, rgba(0, 0, 0, 0.3) 0px 1px 1px -1px;
+  }
+}
+
+.form {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  width: 100%;
+  max-width: 750px;
+  background: #e9f1f4;
+  border-radius: 1.2rem;
+
+  label {
+    font-weight: bold;
+  }
+
+  input,
+  select {
+    width: 100%;
+    margin: 0;
+    padding: 0.25rem 0.5rem;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    border: 0.15rem solid transparent;
+    border-radius: 0.25rem;
+    transition: border $transTime;
+
+    &:hover {
+      border: 0.15rem solid #087ea4;
+    }
+  }
+
+  input {
+    &::placeholder {
+      color: #a5afb3;
+    }
+
+    &[type="checkbox"] {
+      width: min-content;
+    }
+
+    &[type="file"] {
+      padding: 0.5rem;
+      border: none;
+
+      &::file-selector-button {
+        @extend %Buttons;
+      }
+    }
+  }
+}
+
+.button-container {
+  grid-column: span 2;
+  text-align: center;
+
+  button {
+    @extend %Buttons;
+  }
+}
+
+.radio-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  label {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+    font-weight: unset;
+  }
+
+  input,
+  label {
+    cursor: pointer;
+  }
+
+  input:checked {
+    & + label {
+      color: #087ea4;
+    }
+  }
+}
+
+.policy-container {
+  display: flex;
+  justify-content: flex-end;
+  grid-column: span 2;
+
+  label {
+    font-weight: inherit;
+    padding: 0 0.5rem;
+  }
+
+  input,
+  label {
+    cursor: pointer;
+  }
+}
+
+.file-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  grid-column: span 2;
+
+  input[type="file"] {
+    position: relative;
+    left: -0.5rem;
+    padding: 0.5rem;
+    padding-right: 0;
+    width: max-content;
+    overflow: visible;
+  }
+}

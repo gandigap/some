@@ -1,0 +1,148 @@
+$transTime: 0.3s;
+
+.button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 11;
+  padding: 0;
+  font-size: 3rem;
+  color: #23272f;
+  background: none;
+  border: none;
+  transform: translate(2rem, -2rem);
+  cursor: pointer;
+  transition: color $transTime;
+
+  &:hover {
+    color: #087ea4;
+  }
+}
+
+.product {
+  display: grid;
+  padding: 1rem;
+  gap: 1rem;
+  max-height: 80vh;
+  border-radius: 0.125rem;
+  background: #ffffff;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  overflow: scroll;
+
+  h3 {
+    margin: 0;
+    color: #087ea4;
+  }
+
+  span {
+    color: #23272f;
+    font-weight: bold;
+
+    span {
+      color: #087ea4;
+    }
+  }
+}
+
+.picture {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    object-fit: contain;
+    transition: transform $transTime;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.description {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.status {
+  $red: rgb(213, 35, 35);
+  $green: rgb(48, 164, 48);
+  $gray: rgb(68, 68, 68);
+
+  @mixin setStatus($color) {
+    color: $color;
+    border-color: $color;
+  }
+
+  position: relative;
+  top: -1.5rem;
+  align-self: flex-start;
+  padding: 0.125rem 0.25rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.5);
+  border: 0.2rem solid;
+  border-radius: 0.125rem;
+  transform: rotate(-15deg);
+
+  &.dead {
+    @include setStatus($red);
+  }
+
+  &.alive {
+    @include setStatus($green);
+  }
+
+  &.unknown {
+    @include setStatus($gray);
+  }
+}
+
+.list__container {
+  @mixin setSmoothLine ($deg) {
+    background-image: linear-gradient($deg, rgb(255, 255, 255), rgb(255, 255, 255) 40%, rgba(255, 255, 255, 0));
+  }
+
+  %SmoothLine {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1rem;
+    pointer-events: none;
+  }
+
+  position: relative;
+
+  span {
+    position: absolute;
+    @extend %SmoothLine;
+
+    &:first-child {
+      bottom: -0.1rem;
+      @include setSmoothLine(0deg);
+    }
+
+    &:last-child {
+      top: -0.1rem;
+      @include setSmoothLine(180deg)
+    }
+  }
+}
+
+.episodes {
+  margin: 0;
+  padding: 0.8rem 0 0.8rem 1rem;
+  height: min-content;
+  max-height: 4rem;
+  overflow: scroll;
+
+  li {
+    color: #087ea4;
+  }
+}

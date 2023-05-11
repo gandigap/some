@@ -1,0 +1,43 @@
+$transTime: 0.3s;
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+
+.link {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  transition: color $transTime;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -0.125rem;
+    left: 0;
+    right: 0;
+    width: 0;
+    height: 0.125rem;
+    background: #087ea4;
+    transition: width $transTime;
+  }
+
+  &:hover {
+    color: #087ea4;
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+.active {
+  position: relative;
+  color: rgba(8, 125, 164, 0.4);
+  pointer-events: none;
+}

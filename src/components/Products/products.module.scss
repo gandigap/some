@@ -1,0 +1,14 @@
+.products {
+  display: grid;
+  justify-content: center;
+  gap: 2rem 1rem;
+  grid-template-columns: repeat(auto-fit, 250px);
+  width: 100%;
+
+  .message {
+    width: 100%;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #087ea4;
+  }
+}

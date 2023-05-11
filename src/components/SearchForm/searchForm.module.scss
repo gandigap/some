@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  min-width: 250px;
+  max-width: 750px;
+  padding: 0.5rem 1rem;
+  border-radius: 1.2rem;
+  background: #e9f1f4;
+
+  input {
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    border: none;
+    outline: transparent;
+    background: transparent;
+
+    &::placeholder {
+      color: #a5afb3;
+    }
+  }
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
